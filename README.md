@@ -6,8 +6,8 @@ The project also has a script to fetch data from API and process the response as
 
 **Highlights**
 <br>
-Project - Selenium Test Automation Framework.
-Pattern - Page Object Model (POM)
-Build Management - Maven
-Language - Java
-Testing Framework - Testng
+Project - Selenium Test Automation Framework.<br>
+Pattern - Page Object Model (POM)<br>
+Build Management - Maven<br>
+Language - Java<br>
+Testing Framework - Testng<br>
