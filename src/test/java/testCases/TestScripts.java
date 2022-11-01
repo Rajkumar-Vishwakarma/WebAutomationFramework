@@ -13,6 +13,9 @@ public class TestScripts extends BaseClass {
 	HomePO homePO = new HomePO();
 	HomeBO homeBO = new HomeBO(homePO);
 	
+	/*
+	 * Executes actions before suite execution is started
+	 * */
 	@BeforeSuite
 	public void beforeSuite()
 	{
@@ -20,6 +23,9 @@ public class TestScripts extends BaseClass {
 		initializeProps(filePath);
 	}
 	
+	/*
+	 * Executes actions before method execution is started
+	 * */
 	@BeforeMethod
 	public void beforeMethod()
 	{
@@ -27,12 +33,20 @@ public class TestScripts extends BaseClass {
 		driver.get(readProperty(ConstantsFile.applicationUrl));
 	}
 	
+	/*
+	 * Test method in which test actions are performed
+	 * @param	country and language as an object of HomePage data model
+	 * */
 	@Test (dataProvider = "countryLanguageData")
 	public void patientsProfessionalsTest(HomePage countryLanguage)
 	{
 		homeBO.validateTestAction(countryLanguage);
 	}
 	
+	/*
+	 * Data provider method for test method
+	 * @return	country and language as objects of HomePage data model
+	 * */
 	@DataProvider(name="countryLanguageData")
 	public Object[][] dataProviderMethod()
 	{
@@ -42,6 +56,9 @@ public class TestScripts extends BaseClass {
 		};
 	}
 	
+	/*
+	 * Executes actions after test method execution is completed
+	 * */
 	@AfterMethod
 	public void afterMethod()
 	{

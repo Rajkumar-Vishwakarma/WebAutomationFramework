@@ -20,6 +20,10 @@ public class BaseClass {
 	
 	public static WebDriver driver;
 
+	/*
+	 * Initializes properties to perform the test actions
+	 * @param	filePath as String
+	 * */
 	public static void initializeProps(String filePath) {
 		file = new File(filePath);
 		try {
@@ -36,11 +40,20 @@ public class BaseClass {
 
 	}
 	
+	/*
+	 * Reads the property passed as parameter from the properties file
+	 * @param	property as String
+	 * @return 	property value
+	 * */
 	public static String readProperty(String property)
 	{
 		return prop.getProperty(property);
 	}
 	
+	/*
+	 * Launches the browser instance
+	 * @param	browserType as String
+	 * */
 	public static void launchBrowser(String browserType)
 	{
 		switch (browserType) 

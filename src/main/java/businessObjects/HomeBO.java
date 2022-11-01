@@ -12,11 +12,19 @@ public class HomeBO extends BaseClass {
 	public String MSG_INVALID_COMBINATION = "Invalid combination of Country: %1$s and Language: %2$s selected";
 	public HomePO homePO;
 	
+	/*
+	 * Constructor for HomeBO class
+	 * @param	HomePO object
+	 * */
 	public HomeBO(HomePO homePO)
 	{
 		this.homePO = homePO;
 	}
 
+	/*
+	 * Performs and validates the test actions
+	 * @param	country and language as an object of HomePage data model
+	 * */
 	public void validateTestAction(HomePage countryLanguage)
 	{
 		
@@ -46,11 +54,5 @@ public class HomeBO extends BaseClass {
 			Assert.fail(String.format(MSG_INVALID_COMBINATION, countryLanguage.country, countryLanguage.language));
 		}
 	}
-	
-	
-	
-	
-	
-	
 
 }

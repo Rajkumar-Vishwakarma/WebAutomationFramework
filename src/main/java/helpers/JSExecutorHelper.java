@@ -7,6 +7,10 @@ import baseFramework.BaseClass;
 
 public class JSExecutorHelper extends BaseClass {
 	
+	/*
+	 * Scrolls the WebElement into view and clicks it using JavascriptExecutor
+	 * @param	WebElement
+	 * */
 	public void scrollIntoViewAndClick(WebElement element)
 	{
 		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);

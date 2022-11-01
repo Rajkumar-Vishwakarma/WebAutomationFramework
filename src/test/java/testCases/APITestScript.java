@@ -25,6 +25,9 @@ public class APITestScript extends BaseClass {
 	public static final String sourceName = "source_name";
 	public static final String data = "data";
 
+	/*
+	 * Main method
+	 * */
 	public static void main(String[] args) {
 		
 		String url = "https://datausa.io/api/data?drilldowns=Nation&measures=Population";
@@ -41,6 +44,11 @@ public class APITestScript extends BaseClass {
 		}
 	}
 
+	/*
+	 * Parses the response fetched from API
+	 * @param	response body as String
+	 * @return 	null
+	 * */
 	public static String parse(String responseBody) {
 		JSONObject jsonOb = new JSONObject(responseBody);
 		String dataSource = jsonOb.getJSONArray(source).getJSONObject(0).getJSONObject(annotations)
@@ -64,7 +72,6 @@ public class APITestScript extends BaseClass {
 				JSONObject dataNation = nations.getJSONObject(i);
 
 				double population = dataNation.getDouble(populationParameter);
-
 				float prctChange = 0.0f;
 
 				if (previousPopulation == 0) {
@@ -97,6 +104,12 @@ public class APITestScript extends BaseClass {
 		return null;
 	}
 
+	/*
+	 * Gets the year for corresponding percent change in population
+	 * @param	population percent as float
+	 * @param	dictionary with year and percentage as key value pair
+	 * @return 	year which corresponds to the population percent change
+	 * */
 	public static String getYear(float populationPrcnt, Dictionary<String, Float> dict) {
 		String year = null;
 		Enumeration<Float> enValues = dict.elements();
@@ -118,6 +131,11 @@ public class APITestScript extends BaseClass {
 		return year;
 	}
 
+	/*
+	 * Gets the maximum percent change from an enumeration of population percentages
+	 * @param	population percent as Enumeration of float values
+	 * @return 	maximum percent change
+	 * */
 	public static float getMaxPrcnt(Enumeration<Float> elements) {
 		float max = 0.0f, elementPrcnt = 0.0f;
 		while (elements.hasMoreElements()) {
@@ -128,6 +146,11 @@ public class APITestScript extends BaseClass {
 		return max;
 	}
 
+	/*
+	 * Gets the minimum percent change from an enumeration of population percentages
+	 * @param	population percent as Enumeration of float values
+	 * @return 	minimum percent change
+	 * */
 	public static float getMinPrcnt(Enumeration<Float> elements) {
 		float min = 0.0f, elementPrcnt = 0.0f;
 		if (elements != null)

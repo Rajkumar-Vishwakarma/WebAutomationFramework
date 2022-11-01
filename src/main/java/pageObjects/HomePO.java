@@ -19,24 +19,31 @@ public class HomePO extends BaseClass {
 	By patientsLink = By.linkText("Patients");
 	By professionalsLink = By.linkText("Professionals");
 	By acceptCookieBtn = By.cssSelector("button[id='truste-consent-button']");
-	//ul[@id='countryDropdown']//a[text()='Argentina (AR)']
-	//ul[@id='languageDropdown']//a[text()='%s']
 	public String countryValueXpath = "//ul[@id='countryDropdown']//a[text()='%s']";
 	public String languageValueXpath = "//ul[@id='languageDropdown']//a[text()='%s']";
 	
 	
-	
+	/*
+	 * Constructor for HomePO class
+	 * */
 	public HomePO()
 	{
 		this.driverHelper = new WebDriverHelper();
 		this.jsExecutorHelper = new JSExecutorHelper();
 	}
 	
+	/*
+	 * Clicks Country Dropdown
+	 * */
 	public void clickCountryDropdown()
 	{
 		this.driverHelper.clickWebElement(countryDropdown);
 	}
 	
+	/*
+	 * Selects Country Value from Country Dropdown
+	 * @param	country as String
+	 * */
 	public void selectCountryValue(String country)
 	{
 		By countryValueLocator = By.xpath(String.format(countryValueXpath, country));
@@ -46,11 +53,18 @@ public class HomePO extends BaseClass {
 		
 	}
 	
+	/*
+	 * Clicks Language Dropdown
+	 * */
 	public void clickLanguageDropdown()
 	{
 		this.driverHelper.clickWebElement(languageDropdown);
 	}
 	
+	/*
+	 * Selects Language Value from Language Dropdown
+	 * * @param	language as String
+	 * */
 	public void selectLanguageValue(String language)
 	{
 		By languageValueLocator = By.xpath(String.format(languageValueXpath, language));
@@ -59,11 +73,18 @@ public class HomePO extends BaseClass {
 		this.jsExecutorHelper.scrollIntoViewAndClick(languageValueElement);
 	}
 	
+	/*
+	 * Clicks Submit Button
+	 * */
 	public void clickSubmitButton()
 	{
 		this.driverHelper.clickWebElement(submitBtn);
 	}
 
+	/*
+	 * Checks if Patients link is displayed or not
+	 * @return	true if displayed else false
+	 * */
 	public boolean isPatientsLinkDisplayed() 
 	{
 		boolean isDisplayed = false;
@@ -78,6 +99,10 @@ public class HomePO extends BaseClass {
 		return isDisplayed;
 	}
 
+	/*
+	 * Checks if Professionals link is displayed or not
+	 * @return	true if displayed else false
+	 * */
 	public boolean isProfessionalsLinkDisplayed() 
 	{
 		boolean isDisplayed = false;
@@ -92,11 +117,18 @@ public class HomePO extends BaseClass {
 		return isDisplayed;
 	}
 	
+	/*
+	 * Checks if Accept Cookies Button is displayed or not
+	 * @return	true if displayed else false
+	 * */
 	public boolean isAcceptCookieBtnDisplayed()
 	{
 		return this.driverHelper.isElementDisplayed(acceptCookieBtn);
 	}
 	
+	/*
+	 * Clicks Accept Cookie Button
+	 * */
 	public void clickAcceptCookieBtn()
 	{
 		this.driverHelper.clickWebElement(acceptCookieBtn);
