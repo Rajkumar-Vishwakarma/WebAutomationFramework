@@ -6,7 +6,7 @@
       <class name="testCases.TestScripts">
         <methods>
           <include name="afterMethod"/>
-          <include name="patientsProfessionalsTest" invocation-numbers="1"/>
+          <include name="patientsProfessionalsTest" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
         </methods>
