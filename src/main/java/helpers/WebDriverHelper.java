@@ -16,7 +16,6 @@ public class WebDriverHelper extends BaseClass {
 	public void clickWebElement(By elementLocator)
 	{
 		waitForElementToLoad(elementLocator);
-		
 		driver.findElement(elementLocator).click();
 		
 	}
