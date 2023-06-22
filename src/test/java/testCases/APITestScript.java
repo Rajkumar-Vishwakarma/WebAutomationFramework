@@ -7,12 +7,9 @@ import java.net.http.HttpResponse;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import baseFramework.BaseClass;
-import baseFramework.ConstantsFile;
 
 public class APITestScript extends BaseClass {
 
