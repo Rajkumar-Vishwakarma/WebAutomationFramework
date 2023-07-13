@@ -9,7 +9,11 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
@@ -58,13 +62,21 @@ public class BaseClass {
 		switch (browserType) 
 		{
 		case ConstantsFile.chrome:
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+prop.getProperty(ConstantsFile.chromePath));
-			driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("window-size=1200x600", 
+					"--disable-web-security",
+					"--disable-gpu");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver(chromeOptions);
 			break;
 			
 		case ConstantsFile.edge:
-			System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+prop.getProperty(ConstantsFile.edgePath));
-			driver = new EdgeDriver();
+			EdgeOptions edgeOptions = new EdgeOptions();
+			edgeOptions.addArguments("window-size=1200x600", 
+					"--disable-web-security",
+					"--disable-gpu");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver(edgeOptions);
 			break;
 
 		default:
